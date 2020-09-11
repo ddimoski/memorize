@@ -9,14 +9,13 @@
 
     <Button
         android:id="@+id/btn_sign_out"
-        android:layout_width="81dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="676dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="376dp"
         android:onClick="signOutWithGoogle"
         android:text="@string/btn_sign_out"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
