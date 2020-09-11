@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Memorize</string>
     <string name="btn_sign_out">Sign out</string>
+    <string name="home">Home</string>
+    <string name="decks">Decks</string>
+    <string name="flash_cards">Flashcards</string>
+    <string name="schedule_study_time">Schedule study time</string>
+    <string name="map_bookstores">Bookstores nearby</string>
+    <string name="account">Account</string>
+    <string name="home_fragment">Home Fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stationery_nearby">Stationery Nearby</string>
 </resources>

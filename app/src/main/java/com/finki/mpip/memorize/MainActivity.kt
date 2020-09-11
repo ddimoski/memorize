@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var signInButton: SignInButton
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private val RC_SIGN_IN = 1
+    private val RC_EXIT = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +49,12 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         // Check for existing Google Sign In account, if the user is already signed in the GoogleSignInAccount will be non-null.
         val account = GoogleSignIn.getLastSignedInAccount(this)
-        //updateUI(account)
-        //TODO: REDIRECT TO THE NEW ACTIVITY IF SIGNED IN (NEW INTENT) - maybe send the account?
+        if (account != null) {
+            val homeIntent = Intent(this, HomeActivity::class.java)
+            homeIntent.putExtra("account", account)
+            startActivityForResult(homeIntent, RC_EXIT)
+        }
+
     }
 
     fun signInWithGoogle(view: View) {
@@ -59,11 +64,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        val account = GoogleSignIn.getLastSignedInAccount(this)
         if (requestCode == RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach
             // a listener.
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
+        }
+        else if (requestCode == RC_EXIT && account != null) {
+            finish()
         }
 
     }
@@ -74,7 +83,7 @@ class MainActivity : AppCompatActivity() {
             // Signed in successfully, show authenticated UI.
             val homeIntent: Intent = Intent(this, HomeActivity::class.java)
             homeIntent.putExtra("account", account)
-            startActivity(homeIntent)
+            startActivityForResult(homeIntent, RC_EXIT)
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
