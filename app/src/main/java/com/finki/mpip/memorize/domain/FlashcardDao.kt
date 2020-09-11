@@ -21,5 +21,5 @@ interface FlashcardDao {
 
     @Delete
     fun deleteFlashcard(flashcard: Flashcard): Int
-    
+
 }

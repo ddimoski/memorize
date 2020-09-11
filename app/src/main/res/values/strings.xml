@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Memorize</string>
+    <string name="btn_sign_out">Sign out</string>
 </resources>
