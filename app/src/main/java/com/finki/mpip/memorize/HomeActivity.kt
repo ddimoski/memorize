@@ -1,16 +1,19 @@
 package com.finki.mpip.memorize
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.finki.mpip.memorize.domain.User
+import com.finki.mpip.memorize.database.AppDatabase
+import com.finki.mpip.memorize.model.Deck
+import com.finki.mpip.memorize.model.Flashcard
+import com.finki.mpip.memorize.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -24,10 +27,14 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var signOutButton: View
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var navigationController: NavController
+    lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        val sharedPreferences = getSharedPreferences("com.finki.mpip.memorize", Context.MODE_PRIVATE)
+
+        db = AppDatabase.getInstance(this)
 
         signOutButton = findViewById(R.id.btn_sign_out)
         bottomNavigation = findViewById(R.id.bottom_nav)
@@ -53,7 +60,9 @@ class HomeActivity : AppCompatActivity() {
 
             loggedInUser = User(personId!!, personName!!, personGivenName.plus(" ").plus(personFamilyName), personEmail!!, personPhoto!!)
             Toast.makeText(this, String.format("Logged in: %s", loggedInUser), Toast.LENGTH_LONG).show()
+            sharedPreferences.edit().putString("userId", loggedInUser.id).apply()
         }
+
     }
 
     fun signOutWithGoogle(view: View) {
@@ -67,5 +76,16 @@ class HomeActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
+    }
+
+    fun createSampleData(): List<Flashcard> {
+        db.userDao().addUser(loggedInUser)
+        val deck = Deck("SampleDeck", loggedInUser.id)
+        deck.addFlashcard(Flashcard("SampleQuestion 1", "SampleAnswer 1", deck.id))
+        deck.addFlashcard(Flashcard("SampleQuestion 2", "SampleAnswer 2", deck.id))
+        deck.addFlashcard(Flashcard("SampleQuestion 3", "SampleAnswer 3", deck.id))
+        deck.addFlashcard(Flashcard("SampleQuestion 4", "SampleAnswer 4", deck.id))
+        db.deckDao().addDeck(deck)
+        return db.flashCardDao().getFlashcardsByDeckId(deck.id)
     }
 }

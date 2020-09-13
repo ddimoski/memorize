@@ -7,8 +7,20 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/title_home_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/home_fragment" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/textViewSample"
+        android:layout_width="154dp"
+        android:layout_height="73dp"
+        android:text="TextView"
+        android:textSize="24sp" />
 
 </FrameLayout>
