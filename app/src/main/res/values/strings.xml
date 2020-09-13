@@ -11,18 +11,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="stationery_nearby">Stationery Nearby</string>
-    <string-array name="sample_array">
-        <item>Hello1</item>
-        <item>Hello2</item>
-        <item>Hello3</item>
-        <item>Hello4</item>
-        <item>Hello5</item>
-    </string-array>
-    <string-array name="sample_description_array">
-        <item>This is a random description</item>
-        <item>This is a random description</item>
-        <item>This is a random description</item>
-        <item>This is a random description</item>
-        <item>This is a random description</item>
-    </string-array>
+    <string name="add_deck">Add deck</string>
+    <string name="add_flashcard">Add flashcard</string>
+
+    <string name="hint_front_flashcard">Front of flashcard</string>
+    <string name="hint_back_flashcard">Back of flashcard</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Flashcard not saved because one or two of the fields are empty.</string>
+    <string name="button_cancel">Cancel</string>
+
 </resources>

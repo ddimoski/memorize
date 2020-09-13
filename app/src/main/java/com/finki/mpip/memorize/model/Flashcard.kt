@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(foreignKeys = arrayOf(
+@Entity(/*foreignKeys = arrayOf(
     ForeignKey(entity = Deck::class,
     parentColumns = arrayOf("id"),
     childColumns = arrayOf("deck_id"),
     onDelete = ForeignKey.CASCADE)
-))
+)*/)
 data class Flashcard(
     @ColumnInfo(name = "front") var front: String,
     @ColumnInfo(name = "back")  var back: String,

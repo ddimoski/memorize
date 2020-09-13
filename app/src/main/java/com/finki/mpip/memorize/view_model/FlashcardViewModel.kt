@@ -1,8 +1,9 @@
-package com.finki.mpip.memorize.`view-model`
+package com.finki.mpip.memorize.view_model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.viewModelScope
 import com.finki.mpip.memorize.database.AppDatabase
 import com.finki.mpip.memorize.database.FlashcardRepository
@@ -12,10 +13,14 @@ import kotlinx.coroutines.launch
 
 class FlashcardViewModel(application: Application) : AndroidViewModel(application) {
     private val flashcardsRepository: FlashcardRepository
+    var deckId: Long
+    val allFlashcards: LiveData<List<Flashcard>>
 
     init {
-        val flashcardDao = AppDatabase.getInstance(application).flashCardDao()
+        val flashcardDao = AppDatabase.getDatabase(application, viewModelScope).flashCardDao()
+        this.deckId = 0L
         flashcardsRepository = FlashcardRepository(flashcardDao)
+        allFlashcards = flashcardsRepository.flashcardsByDeckId(deckId)
     }
 
     fun allFlashcardsByDeckId(id: Long) = viewModelScope.launch(Dispatchers.IO) {

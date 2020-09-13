@@ -27,14 +27,11 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var signOutButton: View
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var navigationController: NavController
-    lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         val sharedPreferences = getSharedPreferences("com.finki.mpip.memorize", Context.MODE_PRIVATE)
-
-        db = AppDatabase.getInstance(this)
 
         signOutButton = findViewById(R.id.btn_sign_out)
         bottomNavigation = findViewById(R.id.bottom_nav)
@@ -78,7 +75,7 @@ class HomeActivity : AppCompatActivity() {
         finish()
     }
 
-    fun createSampleData(): List<Flashcard> {
+    /*fun createSampleData(): List<Flashcard> {
         db.userDao().addUser(loggedInUser)
         val deck = Deck("SampleDeck", loggedInUser.id)
         deck.addFlashcard(Flashcard("SampleQuestion 1", "SampleAnswer 1", deck.id))
@@ -87,5 +84,5 @@ class HomeActivity : AppCompatActivity() {
         deck.addFlashcard(Flashcard("SampleQuestion 4", "SampleAnswer 4", deck.id))
         db.deckDao().addDeck(deck)
         return db.flashCardDao().getFlashcardsByDeckId(deck.id)
-    }
+    }*/
 }
