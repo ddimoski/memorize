@@ -7,7 +7,7 @@ import com.finki.mpip.memorize.model.Flashcard
 @Dao
 interface FlashcardDao {
     @Query("SELECT * FROM flashcard")
-    suspend fun getAll(): List<Flashcard>
+    fun getAll(): LiveData<List<Flashcard>>
 
     @Query("SELECT * FROM flashcard WHERE id = :id")
     suspend fun getById(id: Long): Flashcard

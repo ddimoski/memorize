@@ -14,10 +14,7 @@ import androidx.room.PrimaryKey
 data class Deck(
     @ColumnInfo(name = "name") var name: String,
     @ColumnInfo(name = "user_id", index = true) var userId: String,
-    @ColumnInfo(name = "flashcards") var flashcards: List<Flashcard> = ArrayList()
+    @ColumnInfo(name = "flashcards") var flashcards: List<Flashcard>
 ) {
     @PrimaryKey(autoGenerate = true) var id: Long = 0
-    fun addFlashcard(newFlashcard: Flashcard) {
-        (flashcards as ArrayList).add(newFlashcard)
-    }
 }

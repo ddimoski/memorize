@@ -12,7 +12,7 @@ import com.finki.mpip.memorize.model.Flashcard
 class FlashcardListAdapter internal constructor(context: Context
 ) : RecyclerView.Adapter<FlashcardListAdapter.FlashcardViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var flashcards = emptyList<Flashcard>() // Cached copy of words
+    var flashcards = emptyList<Flashcard>() // Cached copy of words
 
     inner class FlashcardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val flashcardItemView: TextView = itemView.findViewById(R.id.textView)

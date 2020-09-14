@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_memorize_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddDeckActivity"></activity>
+        <activity android:name=".FlashcardsListActivity"></activity>
+        <activity android:name=".AddDeckActivity" />
         <activity android:name=".AddFlashcardActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

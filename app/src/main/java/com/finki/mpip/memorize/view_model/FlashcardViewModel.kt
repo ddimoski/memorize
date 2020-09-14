@@ -11,16 +11,14 @@ import com.finki.mpip.memorize.model.Flashcard
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FlashcardViewModel(application: Application) : AndroidViewModel(application) {
+class FlashcardViewModel(application: Application, deckId: Long) : AndroidViewModel(application) {
     private val flashcardsRepository: FlashcardRepository
-    var deckId: Long
     val allFlashcards: LiveData<List<Flashcard>>
 
     init {
-        this.deckId = 0L
         val flashcardDao = AppDatabase.getDatabase(application, viewModelScope).flashCardDao()
         flashcardsRepository = FlashcardRepository(flashcardDao)
-        allFlashcards = flashcardsRepository.flashcardsByDeckId(deckId)
+        allFlashcards = flashcardsRepository.allFlashcards()
     }
 
     fun allFlashcardsByDeckId(id: Long) = viewModelScope.launch(Dispatchers.IO) {

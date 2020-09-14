@@ -64,6 +64,7 @@ class DecksFragment : Fragment() {
         return view
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val recyclerView = view!!.findViewById<RecyclerView>(R.id.deck_recyclerview)
@@ -82,7 +83,7 @@ class DecksFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_NEW_DECK && resultCode == Activity.RESULT_OK) {
             val deckName = data?.getStringExtra(AddDeckActivity.EXTRA_DECK_NAME)
-            deckViewModel.insert(Deck(deckName!!, ""))
+            deckViewModel.insert(Deck(deckName!!, "", ArrayList<Flashcard>()))
         }
     }
 
