@@ -49,8 +49,8 @@ class AddFlashcardActivity : AppCompatActivity() {
         }
     }
     companion object {
-        const val EXTRA_FRONT = "com.example.android.wordlistsql.FRONT"
-        const val EXTRA_BACK = "com.example.android.wordlistsql.BACK"
+        const val EXTRA_FRONT = "com.finki.mpip.memorize.FRONT"
+        const val EXTRA_BACK = "com.finki.mpip.memorize.BACK"
     }
 
 

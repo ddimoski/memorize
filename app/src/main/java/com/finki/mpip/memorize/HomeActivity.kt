@@ -56,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
             val personPhoto: Uri? = account.photoUrl
 
             loggedInUser = User(personId!!, personName!!, personGivenName.plus(" ").plus(personFamilyName), personEmail!!, personPhoto!!)
-            Toast.makeText(this, String.format("Logged in: %s", loggedInUser), Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, String.format("Logged in: %s", loggedInUser), Toast.LENGTH_LONG).show()
             sharedPreferences.edit().putString("userId", loggedInUser.id).apply()
         }
 

@@ -14,7 +14,7 @@ import com.finki.mpip.memorize.model.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Flashcard::class, User::class, Deck::class), version = 2)
+@Database(entities = arrayOf(Flashcard::class, User::class, Deck::class), version = 3)
 @TypeConverters(UriConverters::class, FlashcardConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun flashCardDao() : FlashcardDao

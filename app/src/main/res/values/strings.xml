@@ -19,5 +19,7 @@
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Flashcard not saved because one or two of the fields are empty.</string>
     <string name="button_cancel">Cancel</string>
+    <string name="hint_deck_name">Deck name</string>
+    <string name="empty_deck_name">You have to enter a name for the deck</string>
 
 </resources>

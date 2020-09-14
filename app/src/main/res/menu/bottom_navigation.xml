@@ -6,7 +6,7 @@
         android:title="@string/home"/>
 
     <item
-        android:id="@+id/flashcardsFragment"
+        android:id="@+id/decksFragment"
         android:icon="@drawable/ic_baseline_collections_bookmark_24"
         android:title="@string/flash_cards"/>
 

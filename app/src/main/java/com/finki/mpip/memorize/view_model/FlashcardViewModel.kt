@@ -17,8 +17,8 @@ class FlashcardViewModel(application: Application) : AndroidViewModel(applicatio
     val allFlashcards: LiveData<List<Flashcard>>
 
     init {
-        val flashcardDao = AppDatabase.getDatabase(application, viewModelScope).flashCardDao()
         this.deckId = 0L
+        val flashcardDao = AppDatabase.getDatabase(application, viewModelScope).flashCardDao()
         flashcardsRepository = FlashcardRepository(flashcardDao)
         allFlashcards = flashcardsRepository.flashcardsByDeckId(deckId)
     }

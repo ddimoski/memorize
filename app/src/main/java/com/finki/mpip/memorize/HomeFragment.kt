@@ -29,7 +29,7 @@ import org.jetbrains.anko.doAsync
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-private const val RC_NEW_FLASHCARD = 3
+private const val RC_NEW_FLASHCARD = 4
 
 /**
  * A simple [Fragment] subclass.
@@ -56,11 +56,11 @@ class HomeFragment : Fragment() {
         homeActivity = HomeActivity()
         sharedPreferences = activity?.getSharedPreferences("com.finki.mpip.memorize", Context.MODE_PRIVATE)!!
         val userId = sharedPreferences?.getString("userId", "empty")
-        if (userId != "empty") {
+        /*if (userId != "empty") {
             doAsync{
                 loggedInUser = db.userDao().getById(userId!!)
                 Log.w("Success: ", "Async task done")}
-        }
+        }*/
         //db = AppDatabase.getInstance(activity!!.applicationContext)
         //loggedInUser = homeActivity.loggedInUser
 
@@ -101,17 +101,6 @@ class HomeFragment : Fragment() {
             }
     }
 
-    /*private fun createSampleData(): LiveData<List<Flashcard>> {
-        //db.userDao().addUser(loggedInUser)
-        val deck = Deck("SampleDeck", sharedPreferences.getString("userId", "empty")!!)
-        deck.addFlashcard(Flashcard("SampleQuestion 1", "SampleAnswer 1", deck.id))
-        deck.addFlashcard(Flashcard("SampleQuestion 2", "SampleAnswer 2", deck.id))
-        deck.addFlashcard(Flashcard("SampleQuestion 3", "SampleAnswer 3", deck.id))
-        deck.addFlashcard(Flashcard("SampleQuestion 4", "SampleAnswer 4", deck.id))
-        db.deckDao().addDeck(deck)
-        return db.flashCardDao().getFlashcardsByDeckId(deck.id)
-    }*/
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
@@ -123,7 +112,7 @@ class HomeFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(activity)
         flashcardViewModel = ViewModelProvider(this).get(FlashcardViewModel::class.java)
-
+        //TODO: ALWAYS SET DECKID MANUALLY
         flashcardViewModel.allFlashcards.observe(viewLifecycleOwner, Observer { words ->
             // Update the cached copy of the words in the adapter.
             words?.let { adapter.setFlashcards(it) }

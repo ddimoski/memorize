@@ -16,10 +16,10 @@
         android:label="fragment_stationery_nearby"
         tools:layout="@layout/fragment_stationery_nearby" />
     <fragment
-        android:id="@+id/flashcardsFragment"
-        android:name="com.finki.mpip.memorize.FlashcardsFragment"
-        android:label="fragment_flashcards"
-        tools:layout="@layout/fragment_flashcards" />
+        android:id="@+id/decksFragment"
+        android:name="com.finki.mpip.memorize.DecksFragment"
+        android:label="fragment_decks"
+        tools:layout="@layout/fragment_decks" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.finki.mpip.memorize.ProfileFragment"
