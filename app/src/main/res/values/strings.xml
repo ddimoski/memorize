@@ -27,5 +27,8 @@
     <string name="txt_study">Study</string>
     <string name="txt_study_hint">Hint: tap on the flashcard to flip the side</string>
     <string name="profile_picture">Profile picture</string>
+    <string name="info_logged_in_screen">To start using Memorize, you can tap on the Decks menu item. There you can create decks and once you open the decks you can add flashcards and study them. Happy studying!</string>
+    <string name="title_screen">Memorize</string>
+    <string name="info_logged_out">Welcome to Memorize! To start setting up your decks and flashcards, please log in first.</string>
 
 </resources>

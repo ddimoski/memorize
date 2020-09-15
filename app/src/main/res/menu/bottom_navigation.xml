@@ -8,7 +8,7 @@
     <item
         android:id="@+id/decksFragment"
         android:icon="@drawable/ic_baseline_collections_bookmark_24"
-        android:title="@string/flash_cards"/>
+        android:title="@string/decks"/>
 
 <!--    <item-->
 <!--        android:id="@+id/stationeryNearbyFragment"-->
