@@ -24,7 +24,6 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var loggedInUser: User
     private lateinit var mGoogleSignInClient: GoogleSignInClient
-    private lateinit var signOutButton: View
     private lateinit var bottomNavigation: BottomNavigationView
     private lateinit var navigationController: NavController
 
@@ -33,7 +32,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         val sharedPreferences = getSharedPreferences("com.finki.mpip.memorize", Context.MODE_PRIVATE)
 
-        signOutButton = findViewById(R.id.btn_sign_out)
         bottomNavigation = findViewById(R.id.bottom_nav)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navigationController = navHostFragment.navController

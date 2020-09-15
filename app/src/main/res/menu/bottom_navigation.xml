@@ -10,10 +10,10 @@
         android:icon="@drawable/ic_baseline_collections_bookmark_24"
         android:title="@string/flash_cards"/>
 
-    <item
-        android:id="@+id/stationeryNearbyFragment"
-        android:icon="@drawable/ic_baseline_location_on_24"
-        android:title="@string/map_bookstores"/>
+<!--    <item-->
+<!--        android:id="@+id/stationeryNearbyFragment"-->
+<!--        android:icon="@drawable/ic_baseline_location_on_24"-->
+<!--        android:title="@string/map_bookstores"/>-->
 
     <item
         android:id="@+id/profileFragment"

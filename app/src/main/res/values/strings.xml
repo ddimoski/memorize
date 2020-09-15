@@ -26,5 +26,6 @@
     <string name="empty_deck_name">Deck not saved. Enter a name.</string>
     <string name="txt_study">Study</string>
     <string name="txt_study_hint">Hint: tap on the flashcard to flip the side</string>
+    <string name="profile_picture">Profile picture</string>
 
 </resources>
