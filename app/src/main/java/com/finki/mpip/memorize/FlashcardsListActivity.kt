@@ -3,6 +3,8 @@ package com.finki.mpip.memorize
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -13,7 +15,6 @@ import com.finki.mpip.memorize.helpers.FlashcardViewModelFactory
 import com.finki.mpip.memorize.model.Flashcard
 import com.finki.mpip.memorize.view_model.FlashcardViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import org.jetbrains.anko.doAsync
 
 
 private const val RC_NEW_FLASHCARD = 4
@@ -21,6 +22,7 @@ private const val RC_NEW_FLASHCARD = 4
 class FlashcardsListActivity : AppCompatActivity() {
 
     private lateinit var flashcardViewModel: FlashcardViewModel
+    private var deckId = 0L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flashcards_list)
@@ -47,6 +49,9 @@ class FlashcardsListActivity : AppCompatActivity() {
             // Update the cached copy of the words in the adapter.
             flashcards?.let { adapter.setFlashcards(it) }
         })
+
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar()?.setTitle("Flashcards");
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -56,5 +61,20 @@ class FlashcardsListActivity : AppCompatActivity() {
             val back = data?.getStringExtra(AddFlashcardActivity.EXTRA_BACK)
             flashcardViewModel.insert(Flashcard(front!!, back!!, 0))
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.flashcards_menu, menu);
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.study_btn) {
+            val intent = Intent(this, StudyActivity::class.java)
+            intent.putExtra("deckId", deckId)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
