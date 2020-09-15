@@ -26,4 +26,7 @@ interface FlashcardDao {
 
     @Query("DELETE FROM flashcard")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM flashcard")
+    fun getAllFlashcards(): List<Flashcard>
 }

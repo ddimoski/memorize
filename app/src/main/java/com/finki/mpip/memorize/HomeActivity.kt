@@ -56,7 +56,7 @@ class HomeActivity : AppCompatActivity() {
             val personPhoto: Uri? = account.photoUrl
 
             loggedInUser = User(personId!!, personName!!, personGivenName.plus(" ").plus(personFamilyName), personEmail!!, personPhoto!!)
-            //Toast.makeText(this, String.format("Logged in: %s", loggedInUser), Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, String.format("Successfully logged in"), Toast.LENGTH_LONG).show()
             sharedPreferences.edit().putString("userId", loggedInUser.id).apply()
         }
 
@@ -74,15 +74,4 @@ class HomeActivity : AppCompatActivity() {
         super.onBackPressed()
         finish()
     }
-
-    /*fun createSampleData(): List<Flashcard> {
-        db.userDao().addUser(loggedInUser)
-        val deck = Deck("SampleDeck", loggedInUser.id)
-        deck.addFlashcard(Flashcard("SampleQuestion 1", "SampleAnswer 1", deck.id))
-        deck.addFlashcard(Flashcard("SampleQuestion 2", "SampleAnswer 2", deck.id))
-        deck.addFlashcard(Flashcard("SampleQuestion 3", "SampleAnswer 3", deck.id))
-        deck.addFlashcard(Flashcard("SampleQuestion 4", "SampleAnswer 4", deck.id))
-        db.deckDao().addDeck(deck)
-        return db.flashCardDao().getFlashcardsByDeckId(deck.id)
-    }*/
 }

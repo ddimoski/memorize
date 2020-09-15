@@ -10,6 +10,8 @@ class FlashcardRepository(private val flashcardDao: FlashcardDao) {
 
     fun allFlashcards(): LiveData<List<Flashcard>> = flashcardDao.getAll()
 
+    fun getAllFlashcards(): List<Flashcard> = flashcardDao.getAllFlashcards()
+
     suspend fun insert(newFlashcard: Flashcard) = flashcardDao.addFlashcard(newFlashcard)
 
     suspend fun update(flashcard: Flashcard) = flashcardDao.updateFlashcard(flashcard)

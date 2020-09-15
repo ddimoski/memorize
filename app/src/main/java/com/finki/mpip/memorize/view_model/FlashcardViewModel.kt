@@ -21,6 +21,8 @@ class FlashcardViewModel(application: Application, deckId: Long) : AndroidViewMo
         allFlashcards = flashcardsRepository.allFlashcards()
     }
 
+    fun getAllFlashcards() = flashcardsRepository.getAllFlashcards()
+
     fun allFlashcardsByDeckId(id: Long) = viewModelScope.launch(Dispatchers.IO) {
         flashcardsRepository.flashcardsByDeckId(id)
     }

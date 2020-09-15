@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.finki.mpip.memorize.database.AppDatabase
 
 class AddFlashcardActivity : AppCompatActivity() {
 

@@ -19,8 +19,12 @@
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Flashcard not saved because one or two of the fields are empty.</string>
     <string name="button_cancel">Cancel</string>
+    <string name="button_next">Next flashcard</string>
+    <string name="button_back">Previous flashcard</string>
+    <string name="button_stop">Stop studying</string>
     <string name="hint_deck_name">Deck name</string>
-    <string name="empty_deck_name">You have to enter a name for the deck</string>
+    <string name="empty_deck_name">Deck not saved. Enter a name.</string>
     <string name="txt_study">Study</string>
+    <string name="txt_study_hint">Hint: tap on the flashcard to flip the side</string>
 
 </resources>
